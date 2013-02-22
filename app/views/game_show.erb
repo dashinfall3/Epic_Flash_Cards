@@ -1,0 +1,19 @@
+<div class="game-info">
+  Deck Name: <%= @game.deck.name %>
+  Progress : <%= @game.current_card %> / <%= @game.deck.cards.length %>
+  Percentage Correct: <%= @game.guesses.where(:correct => true) %> / @game.guesses.length %> 
+  <%# terrible separation of concerns %>
+</div>
+
+<div class="messages">
+</div>
+
+<div class='card-display'>
+</div>
+
+<form action='/guesses' method='post'>
+  <label for='answer'>Answer</label>
+  <input type='text' name='answer'>
+</form>
+
+
