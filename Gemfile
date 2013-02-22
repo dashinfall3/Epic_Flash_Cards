@@ -13,6 +13,8 @@ gem 'thin'
 gem 'activesupport'
 gem 'activerecord'
 
+gem 'bcrypt-ruby'
+
 gem 'rake'
 
 group :test do
