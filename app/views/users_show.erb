@@ -3,11 +3,27 @@
 
 
 <div>
+<% @games.each do |game| %>
+  <%= game.deck.name %>
+  <%= game.deck.cards.length %> flashcards<br>
+  <% unless game.completed_at == nil %>
+    <div>Time: <%= game.completed_at - game.created_at %></div>
+  <% end %>
+  <% correct_count = game.guesses.where("correct = ?", true).length %>
+  <div>Answers correct: <%= correct_count %></div>
+  <div>Percentage correct: <%= correct_count.to_f/game.deck.cards.length.to_f * 100 %>% </div>
+
+<% end %>
+</div>
+<div>
 <% @decks.each do |deck| %>
   <%= deck.name %>
   <form action='/games/new' method="post" >
     <input type="submit" value="Start">
+    <input type="hidden" name="user_id" value="<%=@user.id%>">
+    <input type="hidden" name="deck_id" value="<%=deck.id%>">
   </form>
+<% end %>
 
 
 </div>

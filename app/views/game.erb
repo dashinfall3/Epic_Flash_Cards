@@ -1,0 +1,22 @@
+<%= @game.deck.name %>
+<div><%= @game.current_card + 1%> of <%= @game.deck.cards.length %></div>
+
+
+<div id="response">
+
+
+</div>
+
+
+<div id="card">
+  <div id="question"><%= @current_card.question %>
+</div>
+
+<form action="/games/<%=@game.id%>/guesses" method="post">
+  <input type="text" name="guess" placeholder="answer">
+  <input type="hidden" name="game_id" value="<%=@game.id%>">
+  <input type="hidden" name="card_id" value="<%=@current_card.id%>">
+  <input type="submit" value="submit">
+</form>
+
+
