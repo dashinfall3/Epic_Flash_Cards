@@ -1,26 +1,45 @@
-<h1>Sign Up</h1>
-<form action='/users/new' method='post'>
+<div class='welcome'>
+  <h2>So many flashcards.</h2>
+</div>
+
+<img class='test' src="/images/test.png" alt="Smiley face" height="150" width="300">
+
+<img class='your' src="/images/your.png" alt="Smiley face" height="150" width="300">
+
+<img class'knowledge' src="/images/knowledge.png" alt="Smiley face" height="150" width="300">
+
+
+<div class='sign_in'>
+  <h1>Sign In</h1>
+  <form action='/users/login' method='post'>
+
+    <label class='input-label' for='name'>Email:<label>
+    <input class='input-field' type='text' name='email'><br>
+
+    <label class='input-label' for='name'>Password:<label>
+    <input class='input-field' type='password' name='password'><br>
+
+    <input class='input-button' type="submit" value = "Sign In">
+  </form>
+</div>
+
+<div class='sign_up'>
+  <h1>Sign Up</h1>
   
-  <label for='name'>Name:<label>
-  <input type='text' name='name'><br>
+  <form action='/users/new' method='post'>
+    <label class='input-label' for='name'>Name:<label>
+    <input class='input-field' type='text' name='name'><br>
 
-  <label for='name'>Email:<label>
-  <input type='text' name='email'><br>
+    <label class='input-label' for='name'>Email:<label>
+    <input class='input-field' type='text' name='email'><br>
 
-  <label for='name'>Password:<label>
-  <input type='password' name='password'><br>
-  <input type="submit" value = "sign up">
-</form>
+    <label class='input-label' for='name'>Password:<label>
+    <input class='input-field' type='password' name='password'><br>
+    
+    <input class='input-button'type="submit" value = "Sign up">
+  </form>
+</div>
 
-<h1>Sign In</h1>
-<form action='/users/login' method='post'>
 
-  <label for='name'>Email:<label>
-  <input type='text' name='email'><br>
-
-  <label for='name'>Password:<label>
-  <input type='password' name='password'><br>
-  <input type="submit" value = "sign up">
-</form>
 
 
