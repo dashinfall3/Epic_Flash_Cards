@@ -1,4 +1,4 @@
-post '/games' do
+post '/games/new' do
   new_game = Game.new(params)
   #takes in 2 hidden inputs, user_id and deck_id
   new_game.save!

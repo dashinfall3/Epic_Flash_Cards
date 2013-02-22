@@ -1,2 +1,13 @@
 <%= @user.name %><br>
 <%= @user.email %><br>
+
+
+<div>
+<% @decks.each do |deck| %>
+  <%= deck.name %>
+  <form action='/games/new' method="post" >
+    <input type="submit" value="Start">
+  </form>
+
+
+</div>
