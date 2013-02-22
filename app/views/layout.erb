@@ -11,6 +11,11 @@
   <title></title>
 </head>
 <body>
+  <a href='/'>Home</a>
+  <% if session[:user_id] %>
+    <a href="/users/<%= session[:user_id] %>">My Profile</a>
+    <a href='/games/new'>Play Game</a>
+  <% end %>
   <%= yield %>
 </body>
 </html>
