@@ -1,5 +1,5 @@
 <h1>Sign Up</h1>
-<form action='/users' method='post'>
+<form action='/users/new' method='post'>
   
   <label for='name'>Name:<label>
   <input type='text' name='name'><br>
@@ -8,20 +8,19 @@
   <input type='text' name='email'><br>
 
   <label for='name'>Password:<label>
-  <input type='text' name='password'><br>
+  <input type='password' name='password'><br>
+  <input type="submit" value = "sign up">
 </form>
 
 <h1>Sign In</h1>
-<form action='/users' method='post'>
-  
-  <label for='name'>Name:<label>
-  <input type='text' name='name'><br>
+<form action='/users/login' method='post'>
 
   <label for='name'>Email:<label>
   <input type='text' name='email'><br>
 
   <label for='name'>Password:<label>
-  <input type='text' name='password'><br>
+  <input type='password' name='password'><br>
+  <input type="submit" value = "sign up">
 </form>
 
 
