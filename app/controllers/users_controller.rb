@@ -23,6 +23,8 @@ end
 get '/users/:id' do
   #User profile
   @user = User.find(params[:id])
+  @games = @user.games
+  @decks = Deck.all
   erb :users_show
 end
 
