@@ -5,18 +5,17 @@ end
 post '/users/new' do
   #Create and save new user
   @new_user = User.new(params)
+  session[:user_id] = authenticate(@new_user.email, params[:password])
+  current_user
   if @new_user.save
-    session[:user_id] = User.authenticate(@new_user.email, @new_user.password)
-    current_user
     redirect to "users/#{@new_user.id}"
   else
     erb :index
   end
-
 end
 
 post '/users/login' do
-  session[:user_id] = User.authenticate(params[:email], params[:password])
+  session[:user_id] = authenticate(params[:email], params[:password])
   if current_user
     redirect to "/users/#{current_user.id}"
   else
@@ -29,7 +28,11 @@ get '/users/:id' do
   @user = User.find(params[:id])
   @games = @user.games
   @decks = Deck.all
-  erb :users_show
+  if session[:user_id] == @user.id
+    erb :users_me
+  else
+    erb :users_show
+  end
 end
 
 get '/logout' do
@@ -43,15 +46,6 @@ post '/user_delete' do
 
   redirect to ('/')
 end
-
-
-def current_user
-  @user ||= User.find(session[:user_id]) if session[:user_id]
-end
-
-
-
-
 
 
 

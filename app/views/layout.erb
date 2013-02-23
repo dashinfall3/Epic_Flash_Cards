@@ -16,11 +16,8 @@
   <div class='nav-bar'>
     <h1>FlashCardster</h1>
     <ul class="nav">
-      <li><a href='/'>Home</a></li>
-      <li><a href='#'>Test</a></li>
       <% if session[:user_id] %>
         <li><a href="/users/<%= session[:user_id] %>">My Profile</a></li>
-        <li><a href='/games/new'>Play Game</a></li>
         <li><a href='/logout'>Logout</a></li>
       <% end %>
     </ul>
