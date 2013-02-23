@@ -20,6 +20,8 @@ helpers do
     end
   end
 
-
+  def nameify(name)
+    name.split ' '.map { |name| name.capitalize }.join ' '
+  end
 
 end
