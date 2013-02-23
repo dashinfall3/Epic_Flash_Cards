@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
                     :uniqueness => true,
                     :format => { :with => /\S+[@]\S+[.]\w{2,3}/,
-                                 :message => "need a valid format dude!"}
+                                 :message => "needs a valid format dude!"}
 
   validates :password, :presence => true
 
