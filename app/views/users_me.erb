@@ -1,18 +1,20 @@
 <div id="content_container">
 
   <div id="user_info">
-    <h1><%= @user.name.capitalize %></h1>
+    <h1><%= @name %></h1>
   </div>
 
 
   <div id="user_stats">
-    <h2> Your performance </h2>
+    <h2> Your performance: </h2>
     <% @games.each do |game| %>
       <div class="game">
         <div class="game_column"><%= game.deck.name %></div>
         <div class="game_column"><%= game.deck.cards.length %> flashcards</div>
-        <% unless game.completed_at == nil %>
-          <div class="game_column">Time: <%= game.completed_at - game.created_at %></div>
+        <% if game.completed_at.nil? %>
+          <div class="game_column">Unfinished: <a href="/games/<%= game.id %>"> Finish now?</a></div> 
+        <% else %>
+          <div class="game_column"><%= calculate_time(game.completed_at - game.created_at) %></div> 
         <% end %>
         <% correct_count = game.guesses.where("correct = ?", true).length %>
         <div class="game_column">Answers correct: <%= correct_count %></div>

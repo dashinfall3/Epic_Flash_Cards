@@ -5,21 +5,19 @@
   </div>
 
   <div class='results_information'>
-    <div>Deck name: <%= @game.deck.name %></div>
-    <div>Time: <%= @time_notification %></div>
-    <div>Answers correct: <%=@correct_count%></div>
-    <div>Percentage correct: <%=@correct_count.to_f / @game.guesses.length.to_f * 100 %>% </div>
+    <div class='result_element'>Deck name: <%= @game.deck.name %></div>
+    <div class='result_element'>Time: <%= @time_notification %></div>
+    <div class='result_element'>Answers correct: <%=@correct_count%></div>
+    <div class='result_element'>Percentage correct: <%=@correct_count.to_f / @game.guesses.length.to_f * 100 %>% </div>
   </div>
 
-  <div id="action_holder">
-    <div id="try_again">
-      <form action="/games/new" method = "post">
-        <input type="hidden" name="user_id" value="<%= @game.user_id %>">
-        <input type="hidden" name="deck_id" value="<%= @game.deck_id %>">
+  <div id="try_again">
+    <form action="/games/new" method = "post">
+      <input type="hidden" name="user_id" value="<%= @game.user_id %>">
+      <input type="hidden" name="deck_id" value="<%= @game.deck_id %>">
 
-        <input type="submit" value="try again">
-      </form>
-    </div>
+      <input type="submit" value="Try again?">
+    </form>
   </div>
 
 </div>

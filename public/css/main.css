@@ -13,6 +13,7 @@ body {
 .container {
   font-family: 'Inika', serif;  color: black;
 }
+
 .nav-bar h1 {
   font-size: 32px;
   width: 200px;
@@ -89,7 +90,7 @@ h3 {
 
 .sign form {
   margin-top: 10px;
-  width:250px;
+  width:210px;
   font-family: Georgia;
   font-size: 14px;
   line-height: 24px;
@@ -108,6 +109,7 @@ h3 {
 .flashcards {
   border-bottom: 2px #eeeeee dotted;
   padding-bottom: 40px;
+
 }
 
 /*User page*/
@@ -121,6 +123,7 @@ h3 {
   float:left;
   background-color: #dddddd;
   padding: 8px;
+  font-size: 14px;
 }
 
 #decks {
@@ -144,7 +147,14 @@ h3 {
   border: 1px #fff solid;
 }
 
+#user_info{
+  padding-top: 50px;
+}
 
+.input-field {
+  margin: 2px 0px;
+  width: 200px;
+}
 
 /*Game show*/
 #question {
@@ -178,21 +188,29 @@ h3 {
 }
 
 .content_container {
+  margin-top: 10px;
   width: 400px;
   margin: 0 auto;
+  padding: 0px 10px;
+  border-left: 2px #eeeeee dotted;
+  border-right: 2px #eeeeee dotted;
+  border-bottom: 2px #eeeeee dotted;
 }
 
 .message {
   font-size: 30px;
   float: left;
+  padding: 20px 0px;
 }
 
 .results_information {
   clear:both;
+  margin-bottom: 12px;
 }
 
-.action_holder {
-  float: left;
+
+.result_element {
+  padding: 5px 0px;
 }
 
 
