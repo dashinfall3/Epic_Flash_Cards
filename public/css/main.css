@@ -46,6 +46,7 @@ body {
   float: left;
   width: 2000px;
   margin-left: 50px;
+  margin-bottom: 10px;
 }
     
 .nav-bar .nav li {
@@ -80,12 +81,10 @@ h3 {
   padding:10px;
 }
 
-
-
 .sign {
   float: left;
   margin-top: 40px;
-  margin-left: 80px;
+  margin-left: 125px;
 }
 
 .sign form {
@@ -177,6 +176,26 @@ h3 {
   float:left;
   padding: 8px;
 }
+
+.content_container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.message {
+  font-size: 30px;
+  float: left;
+}
+
+.results_information {
+  clear:both;
+}
+
+.action_holder {
+  float: left;
+}
+
+
 
 
 
