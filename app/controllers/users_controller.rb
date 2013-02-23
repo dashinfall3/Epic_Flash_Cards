@@ -1,14 +1,29 @@
+before do
+  @message = {}
+end
+
+after do
+  @message.delete :notice
+end
+
 configure do
   enable :sessions
 end
 
 post '/users/new' do
   #Create and save new user
-  @new_user = User.new(params)
-  if @new_user.save
-    session[:user_id] = authenticate(@new_user.email, params[:password])
-    redirect to "/users/#{@new_user.id}"
+  if params[:password] == params[:password_confirmation]
+    @new_user = User.new( :name => params[:name],
+                          :email => params[:email],
+                          :password => params[:password])
+    if @new_user.save
+      session[:user_id] = authenticate(@new_user.email, params[:password])
+      redirect to "/users/#{@new_user.id}"
+    else
+      erb :index
+    end
   else
+    @message[:notice] = "Password doesn't match. Please try again."
     erb :index
   end
 end
