@@ -9,6 +9,7 @@ end
 
 get '/games/:id' do
   #User profile
+  params.to_json
   @game = Game.find(params[:id])
   deck = @game.deck
   cards = deck.cards
