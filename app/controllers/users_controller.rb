@@ -5,10 +5,9 @@ end
 post '/users/new' do
   #Create and save new user
   @new_user = User.new(params)
-  session[:user_id] = authenticate(@new_user.email, params[:password])
-  current_user
   if @new_user.save
-    redirect to "users/#{@new_user.id}"
+    session[:user_id] = authenticate(@new_user.email, params[:password])
+    redirect to "/users/#{@new_user.id}"
   else
     erb :index
   end
@@ -28,6 +27,7 @@ get '/users/:id' do
   @user = User.find(params[:id])
   @games = @user.games
   @decks = Deck.all
+  @name = @user.name.split(' ').map { |name| name.capitalize }.join ' '
   if session[:user_id] == @user.id
     erb :users_me
   else
