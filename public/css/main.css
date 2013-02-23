@@ -62,12 +62,25 @@ body {
 
 h1 {
   margin: 0px;
+  padding: 5px 0 0 0;
 }
 
 h2 {
   color: #838383;
   font-size: 28px;
+  padding: 10px;
+  margin: 0px 0px;
 }
+
+h3 {
+  color: #838383;
+}
+
+#content_container {
+  padding:10px;
+}
+
+
 
 .sign {
   float: left;
@@ -97,3 +110,73 @@ h2 {
   border-bottom: 2px #eeeeee dotted;
   padding-bottom: 40px;
 }
+
+/*User page*/
+.game {
+  clear:both;
+  padding: 2px 0 0 0;
+}
+
+.game_column {
+  width: 200px;
+  float:left;
+  background-color: #dddddd;
+  padding: 8px;
+}
+
+#decks {
+  clear:both;
+  padding: 30px 0 0 0;
+}
+
+.deck {
+  float: left;
+  width: 300px;
+  padding: 10px;
+  margin: 0 20px 0 0;
+  border: 2px #ddd solid;
+}
+
+.submit {
+  padding:5px;
+  background: #4D8BAF;
+  border-radius: 5px;
+  color: white;
+  border: 1px #fff solid;
+}
+
+
+
+/*Game show*/
+#question {
+  font-size: 48px;
+  background-color: white;
+  padding: 50px 25px;
+  margin: 80px 0px 40px 0;
+}
+
+#card_content {
+  width: 800px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+#card_content #response {
+  margin: 0 auto;
+  padding: 30px 0 0 0;
+  font-size: 24px;
+  width: 350px;
+}
+
+#card {
+  clear: both;
+}
+
+.stat_column {
+  width: 250px;
+  float:left;
+  padding: 8px;
+}
+
+
+
