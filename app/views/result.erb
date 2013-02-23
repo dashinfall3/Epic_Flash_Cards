@@ -1,0 +1,22 @@
+<h1> Congrats </h1>
+
+<div>Deck name: <%= @game.deck.name %></div>
+<div>Time: <%=@completion_time %></div>
+<div>Answers correct: <%=@correct_count%></div>
+<div>Percentage correct: <%=@correct_count.to_f / @game.guesses.length.to_f * 100 %>% </div>
+
+
+<div id="action_holder">
+  <div id="try_again">
+    <form action="/games/new" method = "post">
+      <input type="hidden" name="user_id" value="<%= @game.user_id %>">
+      <input type="hidden" name="deck_id" value="<%= @game.deck_id %>">
+
+      <input type="submit" value="try again">
+    </form>
+  </div>
+  <div id="profile">
+    <a href="/users/<%=@game.user_id%>">Profile</a>
+  </div>
+
+</div>

@@ -11,10 +11,19 @@ get '/games/:id' do
   deck = @game.deck
   cards = deck.cards
   #get cards into an array
+  puts cards.inspect
   @current_card = cards[@game.current_card]
-  erb :game
+  if @game.current_card == cards.length
+    @game.update_attribute(:completed_at, Time.now)
+    redirect to "/games/#{@game.id}/result"
+  else 
+    erb :game
+  end
 end
 
 get '/games/:id/result' do
-
+  @game = Game.find(params[:id])
+  @completion_time = @game.completed_at - @game.created_at
+  @correct_count = @game.guesses.where("correct = ?", true).length
+  erb :result
 end
