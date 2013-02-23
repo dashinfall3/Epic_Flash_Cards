@@ -1,3 +1,7 @@
+body {
+  background: #F7FAFC;
+}
+
 .nav-bar {
   float: left;
   background-color: #480000;
@@ -60,21 +64,20 @@ h1 {
   margin: 0px;
 }
 
-.sign_up {
-  float: left;
-  margin: 40px 150px;
+h2 {
+  color: #838383;
+  font-size: 28px;
 }
 
-.sign_in {
+.sign {
   float: left;
   margin-top: 40px;
   margin-left: 80px;
 }
 
-.sign_up form {
+.sign form {
   margin-top: 10px;
   width:250px;
-  height:100px;
   font-family: Georgia;
   font-size: 14px;
   line-height: 24px;
@@ -82,21 +85,15 @@ h1 {
   text-decoration: none;
   border-radius: 10px;
   padding:10px;
-  border: 1px solid #999;
-  box-shadow: 0px 0px 8px #000000;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 8px #ccc;
 }
 
-.sign_in form {
-  margin-top: 10px;
-  width:250px;
-  height:75px;
-  font-family: Georgia;
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 10px;
-  padding:10px;
-  border: 1px solid #999;
-  box-shadow: 0px 0px 8px #000000;
+#login_area {
+  clear:both;
+}
+
+.flashcards {
+  border-bottom: 2px #eeeeee dotted;
+  padding-bottom: 40px;
 }
