@@ -7,16 +7,28 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link rel='stylesheet' href='/css/main.css'>
+  <link href='http://fonts.googleapis.com/css?family=Inika' rel='stylesheet' type='text/css'>
 
   <title></title>
 </head>
 <body>
-  <a href='/'>Home</a>
-  <% if session[:user_id] %>
-    <a href="/users/<%= session[:user_id] %>">My Profile</a>
-    <a href='/games/new'>Play Game</a>
-    <a href='/logout'>Logout</a>
-  <% end %><br>
-  <%= yield %>
+  <div class='nav-bar'>
+    <h1>FlashCardster</h1>
+    <ul class="nav">
+      <li><a href='/'>Home</a></li>
+      <li><a href='#'>Test</a></li>
+      <% if session[:user_id] %>
+        <li><a href="/users/<%= session[:user_id] %>">My Profile</a></li>
+        <li><a href='/games/new'>Play Game</a></li>
+        <li><a href='/logout'>Logout</a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  
 </body>
 </html>
