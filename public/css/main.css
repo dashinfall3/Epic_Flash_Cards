@@ -1,0 +1,102 @@
+.nav-bar {
+  float: left;
+  background-color: #480000;
+  background-color: #303030;
+  font-family: 'Inika', serif;  color: white;
+  width: 100%;  
+}
+
+.container {
+  font-family: 'Inika', serif;  color: black;
+}
+.nav-bar h1 {
+  font-size: 32px;
+  width: 200px;
+  display: inline;
+  margin-left: 20px;
+  margin-top: 6px;
+  float: left;  
+}
+
+.test {
+  float: left;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.your {
+  float: left;
+  margin-right: 10px;
+}
+
+.knowledge{
+  float: left;
+}
+
+.nav-bar .nav {
+  width: 600px;
+  float: left; 
+}
+
+.welcome {
+  float: left;
+  width: 2000px;
+  margin-left: 50px;
+}
+    
+.nav-bar .nav li {
+  float: left;
+  display: inline;
+  margin-top: 2px;
+  margin-right: 10px;
+}
+
+.nav-bar .nav li a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0px;
+}
+
+.sign_up {
+  float: left;
+  margin: 40px 150px;
+}
+
+.sign_in {
+  float: left;
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.sign_up form {
+  margin-top: 10px;
+  width:250px;
+  height:100px;
+  font-family: Georgia;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  padding:10px;
+  border: 1px solid #999;
+  box-shadow: 0px 0px 8px #000000;
+}
+
+.sign_in form {
+  margin-top: 10px;
+  width:250px;
+  height:75px;
+  font-family: Georgia;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  padding:10px;
+  border: 1px solid #999;
+  box-shadow: 0px 0px 8px #000000;
+}
