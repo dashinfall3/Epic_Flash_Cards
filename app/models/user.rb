@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base  
   has_many :games
 
+  validates :name, :presence => true
+  validates :email, :presence => true,
+                    :uniqueness => true,
+                    :format => { :with => /\S+[@]\S+[.]\w{2,3}/,
+                                 :message => "need a valid format dude!"}
 
+  validates :password, :presence => true
 
 # include BCrypt
 

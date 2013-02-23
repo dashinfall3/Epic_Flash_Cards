@@ -8,7 +8,6 @@
 
 <img class'knowledge' src="/images/knowledge.png" alt="Smiley face" height="150" width="300">
 
-
 <div class='sign_in'>
   <h1>Sign In</h1>
   <form action='/users/login' method='post'>
@@ -25,7 +24,10 @@
 
 <div class='sign_up'>
   <h1>Sign Up</h1>
-  
+  <% if @new_user && @new_user.errors %>
+  <%= @new_user.errors.full_messages.join('<br>') %>
+  <% end %>
+
   <form action='/users/new' method='post'>
     <label class='input-label' for='name'>Name:</label>
     <input class='input-field' type='text' name='name'><br>

@@ -4,11 +4,15 @@ end
 
 post '/users/new' do
   #Create and save new user
-  new_user = User.new(params)
-  new_user.save!
-  session[:user_id] = User.authenticate(new_user.email, new_user.password)
-  current_user
-  redirect to "users/#{new_user.id}"
+  @new_user = User.new(params)
+  if @new_user.save
+    session[:user_id] = User.authenticate(@new_user.email, @new_user.password)
+    current_user
+    redirect to "users/#{@new_user.id}"
+  else
+    erb :index
+  end
+
 end
 
 post '/users/login' do
@@ -31,6 +35,13 @@ end
 get '/logout' do
   session.clear
   redirect '/'
+end
+
+post '/user_delete' do
+  @user = Post.find(params[:id])
+  @user.destroy
+
+  redirect to ('/')
 end
 
 
