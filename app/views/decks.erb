@@ -1,14 +1,21 @@
 <br>
 <br>
-<ul>
+
+<table>
+    <tr>
+      <th>Add To Your Decks</th>
+      <th>Deck Name</th>
+      <th>Created By</th>
+    </tr>
 <% @decks.each do |deck| %>
-  <li><input type="checkbox" name="deck" value="<%= deck.name%>">
-      <a href="/decks/<%=deck.id%>"><%= deck.name %></a>
+    <tr>
+      <td><input type="checkbox" name="deck" value="<%= deck.name%>"></td>
+      <td><a href="/decks/<%=deck.id%>"><%= deck.name %></a></td>
       <% if !deck.created_by.nil? %>
         <% user = User.find(deck.created_by) %>
-        | Created By: <a href="/users/<%=user.id%>"><%=user.name%></a></li>
+      <td><a href="/users/<%=user.id%>"><%=user.name%></a></td>
       <% else %>
-        | Created By: Admin</li>
+      <td>Admin</td>
       <% end %>
 <% end %>
-</ul>
+</table>

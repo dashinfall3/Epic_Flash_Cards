@@ -34,6 +34,10 @@
           <input type="hidden" name="user_id" value="<%=@user.id%>">
           <input type="hidden" name="deck_id" value="<%=deck.id%>">
         </form>
+        <form action='/decks/<%=deck.id%>' method='post'>
+          <input type='submit' value='Delete Deck' class='submit'>
+          <input type="hidden" name="_method" value="delete"/> 
+        </form>
       </div>
     <% end %>
   </div>
