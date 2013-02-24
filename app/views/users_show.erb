@@ -1,12 +1,12 @@
 <div id="content_container">
 
   <div id="user_info">
-    <h1><%= @user.name.capitalize %></h1>
+    <h1><%= @user.name %></h1>
   </div>
 
 
   <div id="user_stats">
-    <h2> Your performance </h2>
+    <h2> Performance </h2>
     <% @games.each do |game| %>
       <div class="game">
         <div class="game_column"><%= game.deck.name %></div>
@@ -17,6 +17,15 @@
         <% correct_count = game.guesses.where("correct = ?", true).length %>
         <div class="game_column">Answers correct: <%= correct_count %></div>
         <div class="game_column">Percentage correct: <%= correct_count.to_f/game.deck.cards.length.to_f * 100 %>% </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="decks">
+    <h2> Decks </h2>
+    <% @decks.each do |deck| %>
+      <div class="deck">
+        <h2><%= deck.name %></h2>
       </div>
     <% end %>
   </div>
