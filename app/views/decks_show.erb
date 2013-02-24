@@ -1,0 +1,11 @@
+<br>
+<br>
+
+<h1>Cards</h1>
+<ul>
+<% @cards.each do |card| %>
+  <li>Question: <%= card.question %></li>
+  <li>Answer: <%= card.answer %></li>
+  <br>
+<% end %>
+</ul>

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base  
   has_many :games
+  has_and_belongs_to_many :decks
 
   validates :name, :presence => true
   validates :email, :presence => true,
@@ -8,6 +9,7 @@ class User < ActiveRecord::Base
                                  :message => "needs a valid format dude!"}
 
   validates :password, :presence => true
+
 
 # include BCrypt
 
