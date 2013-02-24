@@ -41,7 +41,7 @@ get '/users/:id' do
   #User profile
   @user = User.find(params[:id])
   @games = @user.games
-  @decks = Deck.all
+  @decks = @user.decks
   @name = @user.name.split(' ').map { |name| name.capitalize }.join ' '
   if session[:user_id] == @user.id
     erb :users_me
