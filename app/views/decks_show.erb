@@ -10,15 +10,20 @@
 <% end %>
 </ul>
 
-<form action="/decks/<%=@deck.id%>/cards" method='post'>
+<% if session[:user_id] == @deck.created_by %>
 
-  <textarea name='question' placeholder='Question'></textarea>
+  <form action="/decks/<%=@deck.id%>/cards" method='post'>
 
-  <textarea name='answer' placeholder='Answer'></textarea>
+    <textarea name='question' placeholder='Question'></textarea>
 
-  <input type='submit' value='Create Card'>
+    <textarea name='answer' placeholder='Answer'></textarea>
 
-</form>
+    <input type='submit' value='Create Card'>
+
+  </form>
+
+<% end %>
+
 
 <%# This is the perfect place for AJAX!! %>
 
