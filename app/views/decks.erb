@@ -2,7 +2,13 @@
 <br>
 <ul>
 <% @decks.each do |deck| %>
-  <li><input type="checkbox" name="deck" value="<%= deck.name%>"><a href="/decks/<%=deck.id%>"><%= deck.name %></a></li>
+  <li><input type="checkbox" name="deck" value="<%= deck.name%>">
+      <a href="/decks/<%=deck.id%>"><%= deck.name %></a>
+      <% if !deck.created_by.nil? %>
+        <% user = User.find(deck.created_by) %>
+        | Created By: <a href="/users/<%=user.id%>"><%=user.name%></a></li>
+      <% else %>
+        | Created By: Admin</li>
+      <% end %>
 <% end %>
 </ul>
-

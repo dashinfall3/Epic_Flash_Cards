@@ -9,3 +9,16 @@
   <br>
 <% end %>
 </ul>
+
+<form action="/decks/<%=@deck.id%>/cards" method='post'>
+
+  <textarea name='question' placeholder='Question'></textarea>
+
+  <textarea name='answer' placeholder='Answer'></textarea>
+
+  <input type='submit' value='Create Card'>
+
+</form>
+
+<%# This is the perfect place for AJAX!! %>
+
