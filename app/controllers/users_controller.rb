@@ -37,6 +37,15 @@ post '/users/login' do
   end
 end
 
+post '/users/:id'do 
+  @user = User.find(params[:id])
+  params["decks"].values.flatten.each do |deck_id|
+    @user.decks << Deck.find(deck_id)
+  end
+  @user.save
+  redirect to("/users/#{session[:user_id]}")
+end  
+
 get '/users/:id' do
   #User profile
   @user = User.find(params[:id])
@@ -58,7 +67,6 @@ end
 post '/user_delete' do
   @user = Post.find(params[:id])
   @user.destroy
-
   redirect to ('/')
 end
 
