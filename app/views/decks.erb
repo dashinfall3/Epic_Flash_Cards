@@ -7,9 +7,10 @@
       <th>Deck Name</th>
       <th>Created By</th>
     </tr>
+    <form action='/users/<%=session[:user_id]%>' method='post'>
 <% @decks.each do |deck| %>
     <tr>
-      <td><input type="checkbox" name="deck" value="<%= deck.name%>"></td>
+      <td><input type="checkbox" name="decks[<%=deck.name%>]" value="<%=deck.id%>"></td>
       <td><a href="/decks/<%=deck.id%>"><%= deck.name %></a></td>
       <% if !deck.created_by.nil? %>
         <% user = User.find(deck.created_by) %>
@@ -19,3 +20,8 @@
       <% end %>
 <% end %>
 </table>
+
+  <input type='submit' value='Add to Decks'>
+
+</form>
+
