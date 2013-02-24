@@ -1,0 +1,8 @@
+<br>
+<br>
+<ul>
+<% @decks.each do |deck| %>
+  <li><input type="checkbox" name="deck" value="<%= deck.name%>"><a href="/decks/<%=deck.id%>"><%= deck.name %></a></li>
+<% end %>
+</ul>
+
