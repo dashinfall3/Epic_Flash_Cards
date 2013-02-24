@@ -22,10 +22,15 @@ get '/decks/:id' do
   erb :decks_show
 end
 
-
 post '/decks/:id/cards' do
   Card.create(:question => params[:question],
               :answer   => params[:answer],
               :deck_id  => params[:id])
   redirect to("/decks/#{params[:id]}")
+end
+
+delete '/decks/:id' do
+  user = User.find(session[:user_id])
+  user.decks.destroy params[:id]
+  redirect to("/users/#{session[:user_id]}")
 end
