@@ -70,6 +70,11 @@ post '/user_delete' do
   redirect to ('/')
 end
 
+get '/users' do
+  @users = User.all
+  erb :users
+end
+
 
 
 
