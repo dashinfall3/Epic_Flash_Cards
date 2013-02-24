@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base  
   has_many :games
-  has_and_belongs_to_many :decks
-
+  has_and_belongs_to_many :decks, :uniq => true #doesn't prevent duplicates at the database level.
+                                                #duplicates are simply ignored by accessors and query methods.
+                                                #Will this cause any problems down the road?
   validates :name, :presence => true
   validates :email, :presence => true,
                     :uniqueness => true,
