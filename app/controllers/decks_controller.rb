@@ -10,8 +10,7 @@ end
 post '/decks' do
   deck = Deck.new(:name => params[:name],
                   :created_by => session[:user_id])
-  deck.users << User.find(session[:user_id])
-  puts deck.inspect
+  deck.users << User.find(current_user.id)
   deck.save
   redirect to("/decks/#{deck.id}")
 end
@@ -32,5 +31,5 @@ end
 delete '/decks/:id' do
   user = User.find(session[:user_id])
   user.decks.destroy params[:id]
-  redirect to("/users/#{session[:user_id]}")
+  redirect to("/users/#{current_user.id}")
 end

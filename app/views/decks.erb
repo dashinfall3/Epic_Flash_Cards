@@ -3,11 +3,11 @@
 
 <table>
     <tr>
-      <th>Add To Your Decks</th>
+      <th>Favorite</th>
       <th>Deck Name</th>
       <th>Created By</th>
     </tr>
-    <form action='/users/<%=session[:user_id]%>' method='post'>
+    <form action='/users/<%=current_user.id%>' method='post'>
 <% @decks.each do |deck| %>
     <tr>
       <td><input type="checkbox" name="decks[<%=deck.name%>]" value="<%=deck.id%>"></td>

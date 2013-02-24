@@ -7,6 +7,9 @@
 
   <div id="user_stats">
     <h2> Your performance: </h2>
+    <% if @games.empty? %>
+    <p>You haven't done any flashcards yet. Look at the decks below and test your smarts!</p>
+    <% end %>
     <% @games.each do |game| %>
       <div class="game">
         <div class="game_column"><%= game.deck.name %></div>
@@ -23,20 +26,35 @@
     <% end %>
   </div>
 
+  <% unless @decks.empty? %>
+    <div id="decks">
+      <h2> Favorite flash card decks </h2>
+      <% @decks.each do |deck| %>
+        <div class="deck">
+          <h2><%= deck.name %></h2>
+          <form action='/games/new' method="post" >
+            <input type="submit" value="Start" class="submit">
+            <input type="hidden" name="user_id" value="<%=@user.id%>">
+            <input type="hidden" name="deck_id" value="<%=deck.id%>">
+          </form>
+          <form action='/decks/<%=deck.id%>' method='post'>
+            <input type='submit' value='Remove from favorites' class='submit'>
+            <input type="hidden" name="_method" value="delete"/> 
+          </form>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <div id="decks">
-    <h2> Flash card decks </h2>
-    <% @decks.each do |deck| %>
+    <h2> All flash card decks </h2>
+    <% @decks_all.each do |deck| %>
       <div class="deck">
         <h2><%= deck.name %></h2>
         <form action='/games/new' method="post" >
           <input type="submit" value="Start" class="submit">
           <input type="hidden" name="user_id" value="<%=@user.id%>">
           <input type="hidden" name="deck_id" value="<%=deck.id%>">
-        </form>
-        <form action='/decks/<%=deck.id%>' method='post'>
-          <input type='submit' value='Delete Deck' class='submit'>
-          <input type="hidden" name="_method" value="delete"/> 
         </form>
       </div>
     <% end %>

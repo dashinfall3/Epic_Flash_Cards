@@ -1,11 +1,3 @@
-before do
-  @message = {}
-end
-
-after do
-  @message.delete :notice
-end
-
 configure do
   enable :sessions
 end
@@ -28,22 +20,13 @@ post '/users/new' do
   end
 end
 
-post '/users/login' do
-  session[:user_id] = authenticate(params[:email], params[:password])
-  if current_user
-    redirect to "/users/#{current_user.id}"
-  else
-    erb :index
-  end
-end
-
-post '/users/:id'do 
+post '/users/:id' do 
   @user = User.find(params[:id])
   params["decks"].values.flatten.each do |deck_id|
     @user.decks << Deck.find(deck_id)
   end
   @user.save
-  redirect to("/users/#{session[:user_id]}")
+  redirect to("/users/#{current_user.id}")
 end  
 
 get '/users/:id' do
@@ -51,17 +34,13 @@ get '/users/:id' do
   @user = User.find(params[:id])
   @games = @user.games
   @decks = @user.decks
+  @decks_all = Deck.all
   @name = @user.name.split(' ').map { |name| name.capitalize }.join ' '
   if session[:user_id] == @user.id
     erb :users_me
   else
     erb :users_show
   end
-end
-
-get '/logout' do
-  session.clear
-  redirect '/'
 end
 
 post '/user_delete' do

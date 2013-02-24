@@ -2,6 +2,10 @@ body {
   background: #F7FAFC;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .nav-bar {
   float: left;
   background-color: #480000;
