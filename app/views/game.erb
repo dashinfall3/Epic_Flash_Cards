@@ -2,7 +2,7 @@
   
   <div class="game-info">
     <div class="stat_column"><h1><%= @game.deck.name %></h1></div>
-    <div class="stat_column"><h3>Progress: <%= @game.current_card + 1 %> of <%= @game.deck.cards.length %></h2></div>
+    <div class="stat_column"><h3>Progress: <%= @game.current_card + 1 %> of <%= @game.deck.cards.length %></h3></div>
     <% unless @game.guesses.length == 0 %>
       <div class="stat_column"><h3>Percentage Correct: <%= ((@game.guesses.where(:correct => true).length.to_f / @game.guesses.length.to_f) * 100).floor %>%</div>
     <% end %>
@@ -18,10 +18,10 @@
   </div>
 
   <div id="response">
-    <form action="/games/<%=@game.id%>/guesses" method="post">
+    <form action="/games/<%=@game.id%>/guesses" method="post" class='input-answer'>
       <input type="text" name="guess" placeholder="answer">
       <input type="hidden" name="game_id" value="<%=@game.id%>">
-      <input type="hidden" name="card_id" value="<%=@current_card.id%>">
+      <input type="hidden" name="card_id" class='card_id' value="<%=@current_card.id%>">
       <input type="submit" value="submit">
     </form>
   </div>

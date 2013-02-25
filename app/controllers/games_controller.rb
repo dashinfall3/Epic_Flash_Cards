@@ -7,7 +7,7 @@ post '/games/new' do
 end
 
 get '/games/:id' do          #User profile
-  params.to_json
+  # params.to_json
   @game = Game.find(params[:id])
   cards = @game.deck.cards
   @current_card = cards[@game.current_card]
