@@ -22,10 +22,12 @@ get '/decks/:id' do
 end
 
 post '/decks/:id/cards' do
-  Card.create(:question => params[:question],
-              :answer   => params[:answer],
-              :deck_id  => params[:id])
-  redirect to("/decks/#{params[:id]}")
+  content_type :json
+  @card = Card.create(:question => params[:question],
+                      :answer   => params[:answer],
+                      :deck_id  => params[:id])
+  
+  { :question => @card.question, :answer => @card.answer }.to_json
 end
 
 delete '/decks/:id' do
@@ -33,3 +35,10 @@ delete '/decks/:id' do
   user.decks.destroy params[:id]
   redirect to("/users/#{current_user.id}")
 end
+
+# post '/decks/:id/cards' do
+#   Card.create(:question => params[:question],
+#               :answer   => params[:answer],
+#               :deck_id  => params[:id])
+#   redirect to("/decks/#{params[:id]}")
+# end

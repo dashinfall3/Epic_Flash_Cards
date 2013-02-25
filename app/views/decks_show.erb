@@ -2,17 +2,10 @@
 <br>
 
 <h1>Cards</h1>
-<ul>
-<% @cards.each do |card| %>
-  <li>Question: <%= card.question %></li>
-  <li>Answer: <%= card.answer %></li>
-  <br>
-<% end %>
-</ul>
 
+<!-- <h2 class='message'></h2> -->
 <% if session[:user_id] == @deck.created_by %>
-
-  <form action="/decks/<%=@deck.id%>/cards" method='post'>
+  <form action="/decks/<%=@deck.id%>/cards" method='post' class='add_new_card'>
 
     <textarea name='question' placeholder='Question'></textarea>
 
@@ -21,8 +14,17 @@
     <input type='submit' value='Create Card'>
 
   </form>
-
 <% end %>
+
+<ul class='card-list'>
+<% @cards.each do |card| %>
+  <li>Question: <%= card.question %></li>
+  <li>Answer: <%= card.answer %></li>
+  <br>
+<% end %>
+</ul>
+
+
 
 
 <%# This is the perfect place for AJAX!! %>

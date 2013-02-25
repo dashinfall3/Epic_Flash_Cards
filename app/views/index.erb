@@ -27,9 +27,6 @@
       <%= @new_user.errors.full_messages.join('<br>') %>
       <% end %>
 
-      <% if @message[:notice] %>
-        <%= @message[:notice] %>
-      <% end %>
     
     <form action='/users/new' method='post'>
      

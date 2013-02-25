@@ -2,15 +2,14 @@
   
   <div class="game-info">
     <div class="stat_column"><h1><%= @game.deck.name %></h1></div>
-    <div class="stat_column"><h3>Progress: <%= @game.current_card + 1 %> of <%= @game.deck.cards.length %></h2></div>
-    <% unless @game.guesses.length == 0 %>
-      <div class="stat_column"><h3>Percentage Correct: <%= ((@game.guesses.where(:correct => true).length.to_f / @game.guesses.length.to_f) * 100).floor %>%</div>
-    <% end %>
+    <div class="stat_column"><h3>Progress: <span id="current_card_count"><%= @game.current_card + 1 %></span> of <%= @game.deck.cards.length %></h2></div>
+      <div class="stat_column"><h3>Percentage Correct: <span id="percent_correct"> </span>%</div>
     <%# terrible separation of concerns %>
   </div>
 
   <div class="messages">
-    <%=@message %>
+
+    <br>Here is the answer:<span id="answer"> </span>
   </div>
 
   <div id="card">
@@ -18,11 +17,35 @@
   </div>
 
   <div id="response">
-    <form action="/games/<%=@game.id%>/guesses" method="post">
+    <form id="guess_form" action="/games/<%=@game.id%>/guesses" method="post">
       <input type="text" name="guess" placeholder="answer">
       <input type="hidden" name="game_id" value="<%=@game.id%>">
       <input type="hidden" name="card_id" value="<%=@current_card.id%>">
       <input type="submit" value="submit">
+    </form>
+  </div>
+
+</div>
+
+<div class='content_container results_container'>
+  
+  <div class='message'>
+    <h1> Congrats! </h1>
+  </div>
+
+  <div class='results_information'>
+    <div class='result_element'>Deck name: <%= @game.deck.name %></div>
+    <div class='result_element'>Time: <span id="time_notification">3</span></div>
+    <div class='result_element'>Answers correct: <span id="correct_count"></span></div>
+    <div class='result_element'>Percentage correct: <span id="percent_correct_result"></span>% </div>
+  </div>
+
+  <div id="try_again">
+    <form action="/games/new" method = "post">
+      <input type="hidden" name="user_id" value="<%= @game.user_id %>">
+      <input type="hidden" name="deck_id" value="<%= @game.deck_id %>">
+
+      <input type="submit" value="Try again?">
     </form>
   </div>
 
