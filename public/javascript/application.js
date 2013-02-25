@@ -16,6 +16,8 @@ $(document).ready(function(){
       }
     });
   });
+
+  $('.game_column:even').css('background-color', '#cccccc')
 });
 
 
