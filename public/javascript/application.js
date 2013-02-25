@@ -16,6 +16,7 @@ $(document).ready(function(){
         $('#correct_count').html(guess['correct_count']);
         $('#percent_correct_result').html(guess['percent_correct']);
         $('#card_content').hide();
+        $('.results_container').show();
         debugger
       }
       // $('#price').html(post['post'].price);
@@ -37,7 +38,7 @@ $(document).ready(function(){
         var message = 'New card created!';
         $('h2').html(message);
         var newCard = "<li>Question: " + data.question + "</li><li>Answer: "+ data.answer + "</li><br>";
-        $("ul.card-list li:first").hide().prepend(newCard).slideDown();
+        $("ul.card-list").hide().prepend(newCard).slideDown();
         $('.add_new_card textarea').val('');
       }
     });
