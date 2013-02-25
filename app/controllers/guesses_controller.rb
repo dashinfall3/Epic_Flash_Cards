@@ -4,6 +4,7 @@ post '/games/:id/guesses' do
   card = Card.find(params[:card_id])
   @game = Game.find(params[:game_id])
   cards = @game.deck.cards
+  # is it right or wrong?
   if card.answer.downcase == params[:guess].downcase
     guess.update_attribute(:correct, true)
     @message = "you got it right :)"
